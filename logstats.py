@@ -7,7 +7,7 @@ import httplib, urllib
 
 def send_memory_to_server():
 	params = create_post_params(check_memory())
-	connection = httplib.HTTPSConnection('brasskittens.herokuapp.com')
+	connection = httplib.HTTPSConnection('paypal-cs-perf.herokuapp.com')
 	request = connection.request('POST', '/stat/memory', params)
 	print(connection.getresponse().read())
 

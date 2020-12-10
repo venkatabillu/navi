@@ -8,14 +8,14 @@ import sys
 
 def send_traceroute_to_server(domain):
 	params = create_post_params(check_traceroute(domain))
-	connection = httplib.HTTPSConnection('brasskittens.herokuapp.com')
+	connection = httplib.HTTPSConnection('paypal-cs-perf.herokuapp.com')
 	request = connection.request('POST', '/stat/domain', params)
 	print(connection.getresponse().read())
 
 def post_log(message):
 	print(message)
 	t = time.ctime()
-	connection = httplib.HTTPSConnection('brasskittens.herokuapp.com')
+	connection = httplib.HTTPSConnection('paypal-cs-perf.herokuapp.com')
 	request = connection.request('POST', '/stat/log', urllib.urlencode({'time': t, 'message': message}))
 	print(connection.getresponse().read())
 

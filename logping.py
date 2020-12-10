@@ -10,14 +10,14 @@ def send_ping_to_server(domain):
 	post_log("Inside of Send Ping to Server")
 	params = create_post_params(check_ping(domain))
 	print(params)
-	connection = httplib.HTTPSConnection('brasskittens.herokuapp.com')
+	connection = httplib.HTTPSConnection('paypal-cs-perf.herokuapp.com')
 	request = connection.request('POST', '/stat/ping', params)
 	print(connection.getresponse().read())
 
 def post_log(message):
 	t = time.ctime()
 	print(message)
-	connection = httplib.HTTPSConnection('brasskittens.herokuapp.com')
+	connection = httplib.HTTPSConnection('paypal-cs-perf.herokuapp.com')
 	request = connection.request('POST', '/stat/log', urllib.urlencode({'time': t, 'message': message}))
 	print(connection.getresponse().read())
 
